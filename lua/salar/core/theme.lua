@@ -1,5 +1,6 @@
 local M = {}
 local colorschemes = require("salar.core.colorschemes")
+local koda = require("salar.core.koda")
 
 local config = {
 	themes = colorschemes.names(),
@@ -39,6 +40,8 @@ local function apply(name, opts)
 		vim.notify(("Unknown theme: %s"):format(name), vim.log.levels.ERROR)
 		return false
 	end
+
+	koda.setup(name)
 
 	local ok, err = pcall(vim.cmd.colorscheme, name)
 	if not ok then

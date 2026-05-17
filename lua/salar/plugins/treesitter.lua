@@ -17,6 +17,7 @@ return {
     treesitter.setup({ -- enable syntax highlighting
       highlight = {
         enable = true,
+        disable = { "markdown", "markdown_inline" },
       },
       -- Treesitter indent can override normal `o`/`O` newline indent behavior.
       indent = { enable = false },
