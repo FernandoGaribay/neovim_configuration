@@ -182,17 +182,10 @@ return {
 		})
 			vim.lsp.enable("lua_ls")
 
-			-- auto-format on save
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				callback = function(ev)
 					local ft = vim.bo[ev.buf].filetype
 					local cpp_like = vim.tbl_contains({ "c", "cpp", "objc", "objcpp" }, ft)
-
-					-- Typst uses typstyle (not LSP)
-					if ft == "typst" then
-						require("conform").format({ bufnr = ev.buf })
-						return
-					end
 
 					if not cpp_like then
 						return
@@ -230,50 +223,5 @@ return {
 		})
 
 		vim.lsp.enable("rust_analyzer")
-
-		-- ============================
-		-- Typst
-		-- ============================
-		vim.lsp.config("tinymist", {
-			cmd = { "tinymist" },
-			filetypes = { "typst" },
-			root_markers = { ".git" },
-			capabilities = capabilities,
-		})
-
-		vim.lsp.enable("tinymist")
-
-		-- ============================
-		-- Haskell
-		-- ============================
-		if vim.fn.executable("haskell-language-server-wrapper") == 1 then
-			vim.lsp.config("hls", {
-				capabilities = capabilities,
-				cmd = { "haskell-language-server-wrapper", "--lsp" },
-				filetypes = { "haskell", "lhaskell", "cabal" },
-				root_markers = { "hie.yaml", "stack.yaml", "cabal.project", "package.yaml", "*.cabal", ".git" },
-			})
-
-			vim.lsp.enable("hls")
-		end
-
-		-- ============================
-		-- Godot / GDScript
-		-- ============================
-		vim.lsp.config("gdscript", {
-			capabilities = capabilities,
-		})
-
-		vim.lsp.enable("gdscript")
-
-		if vim.fn.executable("gdshader-lsp") == 1 then
-			vim.lsp.config("gdshader_lsp", {
-				capabilities = capabilities,
-			})
-
-			vim.lsp.enable("gdshader_lsp")
-		end
 	end,
-
-
 }

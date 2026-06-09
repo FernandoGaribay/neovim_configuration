@@ -23,13 +23,7 @@ return {
 
 		local ensure_installed = {
 			"ts_ls",
-			"html",
-			"cssls",
-			"tailwindcss",
-			"svelte",
 			"lua_ls",
-			"graphql",
-			"emmet_ls",
 			"pyright",
 			"clangd",
 			"rust_analyzer",
