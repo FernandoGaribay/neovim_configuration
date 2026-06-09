@@ -45,15 +45,4 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.filetype.add({
-	extension = {
-		gd = "gdscript",
-		gdshader = "gdshader",
-		gdshaderinc = "gdshaderinc",
-		tres = "gdresource",
-		tscn = "gdresource",
-	},
-	filename = {
-		["project.godot"] = "godot",
-	},
-})
+

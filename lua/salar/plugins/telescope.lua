@@ -9,11 +9,8 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
-		local rndr = require("rndr")
-
 		telescope.setup({
 			defaults = {
-				buffer_previewer_maker = rndr.telescope_buffer_previewer_maker,
 				file_ignore_patterns = {
 					"node_modules",
 					"vendor",

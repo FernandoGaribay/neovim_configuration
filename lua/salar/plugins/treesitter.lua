@@ -52,9 +52,7 @@ return {
         "c",
         "cpp",
         "haskell",
-        "gdscript",
-        "gdshader",
-        "godot_resource",
+
       },
       incremental_selection = {
         enable = true,
